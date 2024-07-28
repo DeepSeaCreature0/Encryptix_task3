@@ -34,7 +34,7 @@ const Application = () => {
     formData.append("jobID", id);
 
     try {
-      const { data } = await axios.post("http://localhost:5000/api/v1/app/postApp", formData, {
+      const { data } = await axios.post("${import.meta.env.VITE_API_URL}/api/v1/app/postApp", formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data"

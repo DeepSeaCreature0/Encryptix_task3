@@ -30,7 +30,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/user/getUser",
+          "${import.meta.env.VITE_API_URL}/api/v1/user/getUser",
           { withCredentials: true }
         );
         setUser(response.data.user);

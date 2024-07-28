@@ -14,7 +14,7 @@ const JobDetails = () => {
       navigateTo("/login");
     }
     try {
-      axios.get(`http://localhost:5000/api/v1/job/${id}`, { withCredentials: true }).then(
+      axios.get(`${import.meta.env.VITE_API_URL}/api/v1/job/${id}`, { withCredentials: true }).then(
         res => {
           setJob(res.data.job);
         }

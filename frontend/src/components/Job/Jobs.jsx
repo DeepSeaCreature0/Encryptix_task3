@@ -19,7 +19,7 @@ const Jobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/v1/job/getAllJobs", {
+        const res = await axios.get("${import.meta.env.VITE_API_URL}/api/v1/job/getAllJobs", {
           params: { searchType, searchValue },
           withCredentials: true
         });

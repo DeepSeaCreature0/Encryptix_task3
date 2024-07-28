@@ -19,11 +19,11 @@ const MyApplications = () => {
   useEffect(() => {
     try {
       if (user && user.role === "Employer") {
-        axios.get("http://localhost:5000/api/v1/app/employerGetAllApps", { withCredentials: true }).then((res) => {
+        axios.get("${import.meta.env.VITE_API_URL}/api/v1/app/employerGetAllApps", { withCredentials: true }).then((res) => {
           setApplication(res.data.apps);
         });
       } else {
-        axios.get("http://localhost:5000/api/v1/app/jobSeekerGetAllApps", { withCredentials: true }).then((res) => {
+        axios.get("${import.meta.env.VITE_API_URL}/api/v1/app/jobSeekerGetAllApps", { withCredentials: true }).then((res) => {
           setApplication(res.data.apps);
         });
       }
@@ -38,7 +38,7 @@ const MyApplications = () => {
 
   const deleteApp = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/app/jobSeekerDeleteApp/${id}`, { withCredentials: true }).then(res => {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/v1/app/jobSeekerDeleteApp/${id}`, { withCredentials: true }).then(res => {
         toast.success(res.data.message);
         setApplication(prevApp => prevApp.filter(app => app._id !== id));
       });

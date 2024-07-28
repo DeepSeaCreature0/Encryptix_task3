@@ -40,7 +40,7 @@ const PostJob = () => {
       setFixedSalary("");
     }
 
-    await axios.post("http://localhost:5000/api/v1/job/postJob",
+    await axios.post("${import.meta.env.VITE_API_URL}/api/v1/job/postJob",
       fixedSalary.length >= 4 ?
         { title, description, city, country, location, fixedSalary, category }
         :
